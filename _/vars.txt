@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Don't override!
+export ROOT=$(dirname `pwd`)
+export EXT=$ROOT/ext
+export SRC=$ROOT/src
+
+# Override ==============================
+export APP=app.out
+export BIN=$ROOT/.out
+export GOR=$HOME/Development/go
+# =======================================
+
+# Don't override!
+export GOROOT=$GOR
+export GOPATH=$EXT
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH

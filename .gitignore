@@ -1,0 +1,6 @@
+*.log
+*.save
+.out
+ext/bin
+ext/pkg
+vars.inc

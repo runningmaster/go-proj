@@ -1,0 +1,7 @@
+#!/bin/sh
+
+. $(dirname $0)/vars.inc
+
+./go-bld
+cd $BIN
+./$APP

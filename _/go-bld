@@ -1,0 +1,14 @@
+#!/bin/sh
+
+. $(dirname $0)/vars.inc
+
+cd $SRC
+
+BLDTIME=`date -u +%Y%m%d%H%M%S`
+GITHEAD=unknown # `git rev-parse --short HEAD`
+VERSION=1.0 # `git describe --tags --abbrev=0 | sed 's/^v//' | sed 's/\+.*$$//'`
+
+go version
+go build \
+	-ldflags "-X main.X_BLDTIME $BLDTIME -X main.X_GITHEAD $GITHEAD -X main.X_VERSION $VERSION" \
+	-o $BIN/$APP *.go
