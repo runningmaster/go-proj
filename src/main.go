@@ -32,19 +32,20 @@ func main() {
 	flag.Parse()
 	flag.Set("log_dir", ".")
 
+	// Example logging
 	if log.V(0) {
 		log.Info("info glog")
 		log.Warning("warning glog")
 		log.Error("error glog")
-
-		fmt.Println("Hello, World!", X_BLDTIME, X_GITHEAD, X_VERSION, *flagFoobar)
-		for i := range itr.N(8) {
-			fmt.Println(i)
-		}
-		fmt.Println("For exit enter Ctrl + C...")
 	}
 
-	// Ctrl + C
+	fmt.Println("Hello, World!", X_BLDTIME, X_GITHEAD, X_VERSION, *flagFoobar)
+	for i := range itr.N(8) {
+		fmt.Println(i)
+	}
+	fmt.Println("For exit enter Ctrl + C...")
+
+	// Example of interception Ctrl + C
 	c, d := make(chan os.Signal, 1), make(chan bool)
 	signal.Notify(c, os.Interrupt, os.Kill)
 	go func() {
