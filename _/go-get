@@ -14,7 +14,8 @@ rm -rf $EXT
 echo "Installing external dependencies"
 
 for i in \
-	"github.com/bradfitz/iter"
+	"github.com/bradfitz/iter" \
+	"github.com/golang/glog"
 do
 	echo $i
 	go get -d $i
