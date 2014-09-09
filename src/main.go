@@ -13,6 +13,7 @@ import (
 	"github.com/BurntSushi/toml"
 	"github.com/bradfitz/iter"
 	"github.com/davecgh/go-spew/spew"
+	"github.com/fatih/stopwatch"
 	"github.com/golang/glog"
 )
 
@@ -32,6 +33,8 @@ func init() {
 }
 
 func main() {
+	defer stopwatch.Start(0).Print("myfunction")
+
 	flag.Parse()
 
 	// TOML config

@@ -17,7 +17,8 @@ for i in \
 	"github.com/bradfitz/iter" \
 	"github.com/golang/glog" \
 	"github.com/davecgh/go-spew/spew" \
-	"github.com/BurntSushi/toml"
+	"github.com/BurntSushi/toml" \
+	"github.com/fatih/stopwatch"
 do
 	echo $i
 	go get -d $i
