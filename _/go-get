@@ -16,7 +16,8 @@ echo "Installing external dependencies"
 for i in \
 	"github.com/bradfitz/iter" \
 	"github.com/golang/glog" \
-	"github.com/davecgh/go-spew/spew"
+	"github.com/davecgh/go-spew/spew" \
+	"github.com/BurntSushi/toml"
 do
 	echo $i
 	go get -d $i
