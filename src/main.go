@@ -9,8 +9,9 @@ import (
 	"os/signal"
 	"runtime"
 
-	itr "github.com/bradfitz/iter"
-	log "github.com/golang/glog"
+	"github.com/bradfitz/iter"
+	"github.com/davecgh/go-spew/spew"
+	"github.com/golang/glog"
 )
 
 // make build sets this automaticaly
@@ -30,17 +31,23 @@ func init() {
 
 func main() {
 	flag.Parse()
+
+	// Override glog's command line flag
 	flag.Set("log_dir", ".")
 
 	// Example logging
-	if log.V(0) {
-		log.Info("info glog")
-		log.Warning("warning glog")
-		log.Error("error glog")
+	if glog.V(0) {
+		glog.Info("info glog")
+		glog.Warning("warning glog")
+		glog.Error("error glog")
 	}
 
+	// Example how spew is working
+	m := map[string]int{"one": 1}
+	spew.Sdump(m)
+
 	fmt.Println("Hello, World!", X_BLDTIME, X_GITHEAD, X_VERSION, *flagFoobar)
-	for i := range itr.N(8) {
+	for i := range iter.N(8) {
 		fmt.Println(i)
 	}
 	fmt.Println("For exit enter Ctrl + C...")
@@ -50,8 +57,8 @@ func main() {
 	signal.Notify(c, os.Interrupt, os.Kill)
 	go func() {
 		for _ = range c {
-			log.Info("Ctrl + C -> Exit()")
-			log.Flush()
+			glog.Info("Ctrl + C -> Exit()")
+			glog.Flush()
 			d <- true
 		}
 	}()
