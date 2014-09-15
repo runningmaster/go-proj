@@ -4,14 +4,13 @@
 export ROOT=$(dirname `pwd`)
 export EXT=$ROOT/ext
 export SRC=$ROOT/src
+export OUT=$ROOT/.out
 
 # Override ==============================
 export APP=app.out
-export BIN=$ROOT/.out
-export GOR=$HOME/Development/go
+export GOROOT=$HOME/Development/go
 # =======================================
 
 # Don't override!
-export GOROOT=$GOR
 export GOPATH=$EXT
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH

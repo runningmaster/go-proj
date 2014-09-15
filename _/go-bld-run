@@ -3,5 +3,5 @@
 . $(dirname $0)/vars.inc
 
 ./go-bld
-cd $BIN
+cd $OUT
 ./$APP
