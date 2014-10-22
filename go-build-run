@@ -1,0 +1,10 @@
+#!/bin/bash -e
+
+. vars.inc
+
+./go-build
+cd bin
+echo ""
+echo "Running..."
+./$PROJ_NAME
+echo "OK"

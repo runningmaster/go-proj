@@ -1,0 +1,5 @@
+#!/bin/bash -e
+
+. vars.inc
+
+go test -test.bench=".*" $PROJ_PATH/version $PROJ_PATH
