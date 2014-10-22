@@ -1,6 +1,0 @@
-#!/bin/sh
-
-. $(dirname $0)/vars.inc
-
-cd $SRC
-go run *.go
