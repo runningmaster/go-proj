@@ -9,6 +9,7 @@ then
         exit 1
 fi
 
+# External packages which this project depends on.
 packages=(\
 	"github.com/bradfitz/iter" \
 	"github.com/golang/glog"\
