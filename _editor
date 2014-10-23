@@ -1,5 +1,5 @@
 #!/bin/bash -e
 
 . vars.inc
-go env
+
 sublime-text-3 src/main.go &

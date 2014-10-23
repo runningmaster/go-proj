@@ -15,6 +15,7 @@ packages=(\
 	)
 
 echo "Installing external dependencies"
+rm -rf $GOPATH/pkg/*
 for i in ${packages[*]}
 do
 	echo $i
