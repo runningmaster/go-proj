@@ -1,3 +1,4 @@
-1. Copy vars.txt as vars.inc and override some environment settings (if necessary)
-2. Update dependensies
 
+1. Copy vars.txt as vars.inc (mandatory) and override some environment settings (if necessary)
+2. Execute go-get-deps for update dependensies (if necessary)
+3. Execute go-build
