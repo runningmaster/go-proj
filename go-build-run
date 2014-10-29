@@ -7,4 +7,5 @@ cd bin
 echo ""
 echo "Running..."
 ./$PROJ_NAME
+echo ""
 echo "OK"

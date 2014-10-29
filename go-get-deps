@@ -2,25 +2,23 @@
 
 . vars.inc
 
-read -p "(Re) Installing external dependencies [y/n]? " YES
-if [ "$YES" != 'y' ];
+read -p "(Re) Installing external dependencies [Y/n]? " YES
+if [ "$YES" != 'Y' ] && [ "$YES" != 'y' ];
 then
-    	echo "bye"
+    	echo "No? Then bye!"
         exit 1
 fi
 
 # External packages which this project depends on.
 packages=(\
-	"github.com/bradfitz/iter" \
 	"github.com/golang/glog"\
 	)
 
 echo "Installing external dependencies"
-rm -rf $GOPATH/pkg/*
+rm -rf $GOPATH/*
 for i in ${packages[*]}
 do
 	echo $i
-	rm -rf $GOPATH/src/$i
 	go get -d $i
 	go install $i
 done

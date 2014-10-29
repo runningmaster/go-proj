@@ -11,6 +11,7 @@ go env
 go version
 go fmt $PROJ_PATH/version $PROJ_PATH
 go install $PROJ_PATH/version
+echo ""
 go build \
 	-ldflags "-X $PROJ_PATH/version.BLDTIME $BLDTIME -X $PROJ_PATH/version.GITHEAD $GITHEAD -X $PROJ_PATH/version.VERSION $VERSION" \
 	-o bin/$PROJ_NAME $PROJ_PATH

@@ -4,16 +4,19 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/bradfitz/iter"
 	"github.com/golang/glog"
 	"github.com/runningmaster/ini403d/version"
 )
 
+var n [int32(^uint32(0) >> 1)]struct{}
+
 func main() {
+	defer glog.Flush()
+
 	flag.Parse()
 	flag.Set("log_dir", ".") // Override glog's command line flag
 
-	for i := range iter.N(10) {
+	for i := range n[:5] {
 		fmt.Println(i, version.Print())
 	}
 
@@ -23,5 +26,4 @@ func main() {
 		glog.Warning("warning glog")
 		glog.Error("error glog")
 	}
-	glog.Flush()
 }
