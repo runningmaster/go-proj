@@ -2,7 +2,7 @@
 
 . vars.inc
 
-read -p "(Re) Installing external dependencies [Y/n]? " YES
+read -p "(Re) Installing external dependencies [y/N]?" YES
 if [ "$YES" != 'Y' ] && [ "$YES" != 'y' ];
 then
     	echo "No? Then bye!"
