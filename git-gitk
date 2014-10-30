@@ -1,2 +1,2 @@
-gitk --all &
+git status && gitk --all &
 

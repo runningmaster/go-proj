@@ -1,1 +1,1 @@
-git gui &
+git status && git gui &
