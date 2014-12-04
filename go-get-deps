@@ -11,7 +11,7 @@ fi
 
 # External packages which this project depends on.
 packages=(\
-	"github.com/golang/glog"\
+	"github.com/golang/glog"
 	)
 
 echo "Installing external dependencies"
