@@ -1,1 +1,4 @@
-git fetch origin && git merge origin/master && git status && gitk --all
+git fetch origin 
+git merge origin/master 
+git status 
+gitg

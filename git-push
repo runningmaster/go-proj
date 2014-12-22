@@ -1,1 +1,4 @@
-git push origin master && git status && gitk --all
+gitg --activity commit
+git push origin master
+git status
+gitg
