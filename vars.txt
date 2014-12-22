@@ -2,7 +2,7 @@ PROJ_HOST="github.com/runningmaster"  # ready for override
 PROJ_NAME="ini403d"                   # ready for override
 PROJ_PATH=$PROJ_HOST/$PROJ_NAME 
 
-export GOROOT=$HOME/Development/go    # ready for override
+export GOROOT=/opt/go                 # ready for override
 export GOPATH=$(pwd)/ext
 export PATH=$GOROOT/bin:$PATH
 
