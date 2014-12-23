@@ -1,4 +1,4 @@
-gitg --activity commit
+git gui
 git push origin master
 git status
-gitg
+gitk --all
