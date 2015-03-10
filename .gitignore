@@ -3,3 +3,4 @@ ext/bin
 ext/pkg
 ext/src/github.com/runningmaster
 vars.inc
+x-git*

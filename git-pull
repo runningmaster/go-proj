@@ -1,4 +1,0 @@
-git fetch origin 
-git merge origin/master 
-git status 
-gitk --all

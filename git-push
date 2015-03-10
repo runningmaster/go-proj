@@ -1,4 +1,0 @@
-git gui
-git push origin master
-git status
-gitk --all
