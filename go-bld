@@ -3,16 +3,17 @@
 . vars.inc
 
 BLDTIME=`date -u +%d-%m-%Y.%H:%M:%S`
-GITHEAD=unknown #`git rev-parse --short HEAD`
-VERSION=unknown # `git describe --tags --abbrev=0 | sed 's/^v//' | sed 's/\+.*$$//'`
+GITHEAD=`git rev-parse --short HEAD`
+VERSION=1.0 #`git describe --tags --abbrev=0 | sed 's/^v//' | sed 's/\+.*$$//'`
+
+go env && go version
+go fmt $proj_path
+echo ""
 
 echo "Building..."
-go env
-go version
-go fmt $PROJ_PATH/version $PROJ_PATH
-go install $PROJ_PATH/version
-echo ""
 go build \
-	-ldflags "-X $PROJ_PATH/version.BLDTIME $BLDTIME -X $PROJ_PATH/version.GITHEAD $GITHEAD -X $PROJ_PATH/version.VERSION $VERSION" \
-	-o bin/$PROJ_NAME $PROJ_PATH
+	-ldflags "-X $proj_path/version.BLDTIME $BLDTIME -X $proj_path/version.GITHEAD $GITHEAD -X $proj_path/version.VERSION $VERSION" \
+	-o bin/$proj_name $proj_path
+echo ""
+
 echo "OK"

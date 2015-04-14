@@ -1,14 +1,6 @@
-PROJ_HOST="github.com/runningmaster"  # ready for override
-PROJ_NAME="ini403d"                   # ready for override
-PROJ_PATH=$PROJ_HOST/$PROJ_NAME 
+proj_name="project403"                # override if necessary
+proj_path="github.com/runningmaster"  # override if necessary
 
-export GOROOT=/opt/go                 # ready for override
+export GOROOT=$HOME/Development/go    # override if necessary
 export GOPATH=$(pwd)/ext
-export PATH=$GOROOT/bin:$PATH
-
-if [ ! -h $GOPATH/src/$PROJ_PATH ]; then
-	mkdir -p $GOPATH/src/$PROJ_HOST
-	ln -s ${PWD}/src $GOPATH/src/$PROJ_PATH
-fi
-
-eval $(go env)
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH

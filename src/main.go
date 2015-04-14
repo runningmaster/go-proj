@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"github.com/golang/glog"
-	"github.com/runningmaster/ini403d/version"
+	"github.com/runningmaster/version"
 )
 
 var n [int32(^uint32(0) >> 1)]struct{}

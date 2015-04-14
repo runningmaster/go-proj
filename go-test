@@ -2,4 +2,4 @@
 
 . vars.inc
 
-go test -test.bench=".*" $PROJ_PATH/version $PROJ_PATH
+go test -test.bench=".*" $proj_path/version $proj_path

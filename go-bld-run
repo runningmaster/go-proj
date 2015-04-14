@@ -4,8 +4,6 @@
 
 ./go-bld
 cd bin
-echo ""
 echo "Running..."
-./$PROJ_NAME
-echo ""
+./$proj_name
 echo "OK"
