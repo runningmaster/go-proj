@@ -8,5 +8,8 @@ golint $proj_path
 echo ">>> Check errors..."
 errcheck $proj_path
 
+echo ">>> Vet..."
+go vet $proj_path
+
 echo ">>> Run tests..."
 go test -test.bench=".*" $proj_path
