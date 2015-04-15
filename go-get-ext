@@ -12,7 +12,7 @@ packages_ext=(\
 	"github.com/golang/glog"
 	)
 
-read -p "(Re) Installing external dependencies [y/N]?" YES
+read -p "Update external packages [y/N]?" YES
 if [ "$YES" != 'Y' ] && [ "$YES" != 'y' ];
 then
     	echo "No? Then bye!"
@@ -20,9 +20,9 @@ then
 fi
 
 rm -rf $GOPATH/*
-mkdir -p $GOPATH/src/$proj_path && ln -s ${PWD}/src/* $GOPATH/src/$proj_path
+mkdir -p $GOPATH/src/$proj_path
+ln -s ${PWD}/src/* $GOPATH/src/$proj_path
 
-echo "Installing external dependencies:"
 for i in ${packages_int[*]}
 do
 	echo $proj_path/$i
@@ -30,12 +30,10 @@ do
 done
 for i in ${packages_ext[*]}
 do
-	echo $i
-	go get -d $i
+	go get -d -v $i
 	go install $i
 done
 
-echo "Removing vcs folders..."
 cd ext
 for i in ".hg*" ".git*" ".bzr*"
 do
