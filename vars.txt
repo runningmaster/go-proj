@@ -1,6 +1,6 @@
 proj_name=p403
 proj_path=main
 
-export GOROOT=$HOME/Development/go
+export GOROOT=$HOME/go
 export GOPATH=$(pwd)/ext
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
