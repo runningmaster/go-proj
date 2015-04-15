@@ -1,5 +1,12 @@
-#!/bin/bash -e
+#!/bin/bash
 
 . vars.inc
 
-go test -test.bench=".*" $proj_path/version $proj_path
+echo ">>> Find lints..."
+golint $proj_path
+
+echo ">>> Check errors..."
+errcheck $proj_path
+
+echo ">>> Run tests..."
+go test -test.bench=".*" $proj_path

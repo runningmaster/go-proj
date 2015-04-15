@@ -1,5 +1,0 @@
-#!/bin/bash -e
-
-. vars.inc
-
-golint $proj_path
