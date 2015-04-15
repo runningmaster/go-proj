@@ -4,8 +4,9 @@ import (
 	"flag"
 	"fmt"
 
+	"main/version"
+
 	"github.com/golang/glog"
-	"github.com/runningmaster/version"
 )
 
 var n [int32(^uint32(0) >> 1)]struct{}

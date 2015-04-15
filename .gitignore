@@ -1,5 +1,5 @@
 bin
 ext/bin
 ext/pkg
-ext/src/github.com/runningmaster
+ext/src/main
 vars.inc

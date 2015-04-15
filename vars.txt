@@ -1,6 +1,6 @@
-proj_name="project403"                # override if necessary
-proj_path="github.com/runningmaster"  # override if necessary
+proj_name=p403
+proj_path=main
 
-export GOROOT=$HOME/Development/go    # override if necessary
+export GOROOT=$HOME/Development/go
 export GOPATH=$(pwd)/ext
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
