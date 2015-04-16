@@ -18,24 +18,17 @@ do
 	if [ "$line" != '' ];
 	then
 		go get -d -v $line
-		go install $line
 	fi
-done < pkgs.ext.txt
+done < pkgs.txt
 
-while read line
-do
-	if [ "$line" != '' ];
-	then
-		echo $proj_path/$line
-		go install $proj_path/$line
-	fi
-done < pkgs.int.txt
+go install $proj_path
 
 cd ext
 for i in ".hg*" ".git*" ".bzr*"
 do
 	find . -name $i -print0 | xargs -0 rm -rf
 done
-
 cd ..
+
+go install $proj_path
 echo "OK"
