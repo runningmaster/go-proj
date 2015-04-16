@@ -2,4 +2,4 @@
 
 . vars.inc
 
-sublime-text-3 src/main.go &
+$proj_edit &
