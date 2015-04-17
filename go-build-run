@@ -2,7 +2,7 @@
 
 . vars.inc
 
-./go-bld
+./go-build
 cd bin
 echo "Running..."
 ./$proj_name

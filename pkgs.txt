@@ -1,2 +1,7 @@
+#
+# External packages which this project depends on. #
+#
+
+# Leveled execution logs for Go
 github.com/golang/glog
 

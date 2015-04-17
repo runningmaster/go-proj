@@ -15,11 +15,12 @@ ln -s ${PWD}/src/* $GOPATH/src/$proj_path
 
 while read line
 do
+	[[ "$line" =~ ^#.*$ ]] && continue
 	if [ "$line" != '' ];
 	then
 		go get -d -v $line
 	fi
-done < pkgs.txt
+done < ./pkgs.txt
 
 go install $proj_path
 

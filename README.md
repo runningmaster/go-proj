@@ -1,5 +1,5 @@
 # Setup (in Linux)
 
-1. Copy "vars.txt" as "vars.inc" and (if necessary) override some environment settings
-2. Execute "go-get-ext" for update external dependencies
-3. Execute "go-bld" or "go-bld-run"
+1. Copy *vars.txt* as *vars.inc* and (if necessary) override some environment settings
+2. Execute *sync-get* for update external dependencies
+3. Execute *go-build* or *go-build-run*
