@@ -1,5 +1,9 @@
 bin
+
 ext/bin
 ext/pkg
+
+# $PROJ_PATH
 ext/src/main
+
 vars.inc

@@ -2,14 +2,14 @@
 
 . vars.inc
 
-echo ">>> Find lints..."
-golint $proj_path
+echo "-> Lint"
+golint $PROJ_PATH
 
-echo ">>> Check errors..."
-errcheck $proj_path
+echo "-> ChErr"
+errcheck $PROJ_PATH
 
-echo ">>> Vet..."
-go vet $proj_path
+echo "-> Vet"
+go vet $PROJ_PATH
 
-echo ">>> Run tests..."
-go test -test.bench=".*" $proj_path
+echo "-> Test"
+go test -test.bench=".*" $PROJ_PATH

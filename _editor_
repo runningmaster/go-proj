@@ -2,4 +2,8 @@
 
 . vars.inc
 
-$proj_edit &
+run_editor() {
+	$PROJ_EDIT
+}
+
+run_editor &

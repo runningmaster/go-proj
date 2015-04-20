@@ -2,34 +2,31 @@
 
 . vars.inc
 
-read -p "Update external packages [y/N]?" YES
-if [ "$YES" != 'Y' ] && [ "$YES" != 'y' ];
-then
-    	echo "No? Then bye!"
-        exit 1
-fi
+go_get_and_install () {
+	rm -rf $GOPATH/*
+	mkdir -p $GOPATH/src/$PROJ_PATH
+	ln -s ${PWD}/src/* $GOPATH/src/$PROJ_PATH
 
-rm -rf $GOPATH/*
-mkdir -p $GOPATH/src/$proj_path
-ln -s ${PWD}/src/* $GOPATH/src/$proj_path
+	while read line
+	do
+		[[ "$line" =~ ^#.*$ ]] && continue
+		if [ "$line" != '' ];
+		then
+			go get -d -v $line
+		fi
+	done < ./pkgs.txt
 
-while read line
-do
-	[[ "$line" =~ ^#.*$ ]] && continue
-	if [ "$line" != '' ];
-	then
-		go get -d -v $line
-	fi
-done < ./pkgs.txt
+	go install $PROJ_PATH
 
-go install $proj_path
+	cd ext
+	for i in ".hg*" ".git*" ".bzr*"
+	do
+		find . -name $i -print0 | xargs -0 rm -rf
+	done
+	cd ..
 
-cd ext
-for i in ".hg*" ".git*" ".bzr*"
-do
-	find . -name $i -print0 | xargs -0 rm -rf
-done
-cd ..
+	go install $PROJ_PATH
+	echo "OK"
+}
 
-go install $proj_path
-echo "OK"
+confirm "Update external packages?" && go_get_and_install

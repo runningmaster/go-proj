@@ -1,9 +1,12 @@
 #!/bin/bash -e
 
-. vars.inc
+. go-build
 
-./go-build
-cd bin
-echo "Running..."
-./$proj_name
-echo "OK"
+go_run() {
+	echo "-> Run"
+	cd bin
+	./$PROJ_NAME
+	echo "OK"
+}
+
+go_run

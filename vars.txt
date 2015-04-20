@@ -1,7 +1,23 @@
-proj_name=p403
-proj_path=main
-proj_edit="sublime-text-3 src/main.go"
+export PROJ_NAME=p403
+export PROJ_PATH=main
+export PROJ_EDIT="sublime-text-3 src/main.go"
 
 export GOROOT=$HOME/go
 export GOPATH=$(pwd)/ext
+
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+
+confirm () {
+    # call with a prompt string or use a default
+    read -r -p "${1:-Are you sure?} [y/N] " response
+    case $response in
+        [yY][eE][sS]|[yY]) 
+            true
+            ;;
+        *)
+            false
+            ;;
+    esac
+}
+
+go env && go version

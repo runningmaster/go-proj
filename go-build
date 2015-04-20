@@ -6,14 +6,13 @@ BLDTIME=`date -u +%d-%m-%Y.%H:%M:%S`
 GITHEAD=`git rev-parse --short HEAD`
 VERSION=1.0 #`git describe --tags --abbrev=0 | sed 's/^v//' | sed 's/\+.*$$//'`
 
-go env && go version
-go fmt $proj_path
-echo ""
+go_build() {
+	go fmt $PROJ_PATH
+	echo "-> Build"
+	go build \
+		-ldflags "-X $PROJ_PATH/version.BLDTIME $BLDTIME -X $PROJ_PATH/version.GITHEAD $GITHEAD -X $PROJ_PATH/version.VERSION $VERSION" \
+		-o bin/$PROJ_NAME $PROJ_PATH
+	echo "OK"
+}
 
-echo "Building..."
-go build \
-	-ldflags "-X $proj_path/version.BLDTIME $BLDTIME -X $proj_path/version.GITHEAD $GITHEAD -X $proj_path/version.VERSION $VERSION" \
-	-o bin/$proj_name $proj_path
-echo ""
-
-echo "OK"
+go_build
