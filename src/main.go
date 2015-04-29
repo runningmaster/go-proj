@@ -4,7 +4,7 @@ import (
 	"flag"
 	"fmt"
 
-	"main/version"
+	"src/version"
 
 	"github.com/golang/glog"
 )
@@ -17,9 +17,7 @@ func main() {
 	flag.Parse()
 	flag.Set("log_dir", ".") // Override glog's command line flag
 
-	for i := range n[:5] {
-		fmt.Println(i, version.Print())
-	}
+	fmt.Println(rangeN(5), version.Print())
 
 	// Example logging
 	if glog.V(0) {
@@ -27,4 +25,11 @@ func main() {
 		glog.Warning("warning glog")
 		glog.Error("error glog")
 	}
+}
+
+func rangeN(N int) int {
+	var i int
+	for i = range n[:N] {
+	}
+	return i + 1
 }

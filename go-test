@@ -2,14 +2,14 @@
 
 . vars.inc
 
-echo "-> Lint"
-golint $PROJ_PATH
+echo "-- lnt --->"
+golint src
 
-echo "-> ChErr"
-errcheck $PROJ_PATH
+echo "-- err --->"
+errcheck src
 
-echo "-> Vet"
-go vet $PROJ_PATH
+echo "-- vet --->"
+go vet src
 
-echo "-> Test"
-go test -test.bench=".*" $PROJ_PATH
+echo "-- tst --->"
+go test ./src/... -bench=.

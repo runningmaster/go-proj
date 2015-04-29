@@ -7,11 +7,11 @@ GITHEAD=`git rev-parse --short HEAD`
 VERSION=1.0 #`git describe --tags --abbrev=0 | sed 's/^v//' | sed 's/\+.*$$//'`
 
 go_build() {
-	go fmt $PROJ_PATH
+	go fmt src
 	echo "-> Build"
 	go build \
-		-ldflags "-X $PROJ_PATH/version.BLDTIME $BLDTIME -X $PROJ_PATH/version.GITHEAD $GITHEAD -X $PROJ_PATH/version.VERSION $VERSION" \
-		-o bin/$PROJ_NAME $PROJ_PATH
+		-ldflags "-X src/version.BLDTIME $BLDTIME -X src/version.GITHEAD $GITHEAD -X src/version.VERSION $VERSION" \
+		-o bin/$PROJ_NAME src
 	echo "OK"
 }
 

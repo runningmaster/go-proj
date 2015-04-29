@@ -4,8 +4,8 @@
 
 go_get_and_install() {
 	rm -rf $GOPATH/*
-	mkdir -p $GOPATH/src/$PROJ_PATH
-	ln -s ${PWD}/src/* $GOPATH/src/$PROJ_PATH
+	mkdir -p $GOPATH/src
+	ln -s ${PWD}/src $GOPATH/src
 
 	while read line
 	do
@@ -16,16 +16,15 @@ go_get_and_install() {
 		fi
 	done < ./pkgs.txt
 
-	go install $PROJ_PATH
-
-	cd ext
+	pushd $GOPATH
+	echo "removing revision control's system files..."
 	for i in ".hg*" ".git*" ".bzr*"
 	do
 		find . -name $i -print0 | xargs -0 rm -rf
 	done
-	cd ..
+	popd
 
-	go install $PROJ_PATH
+	go install src
 	echo "OK"
 }
 

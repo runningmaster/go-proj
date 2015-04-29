@@ -1,9 +1,7 @@
 bin
 
-ext/bin
-ext/pkg
-
-# $PROJ_PATH
-ext/src/main
+vnd/bin
+vnd/pkg
+vnd/src/src
 
 vars.inc
