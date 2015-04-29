@@ -14,7 +14,7 @@ go_get_and_install() {
 		then
 			go get -d -v $line
 		fi
-	done < ./pkgs.txt
+	done < ./sync.txt
 
 	pushd $GOPATH
 	echo "removing revision control's system files..."
