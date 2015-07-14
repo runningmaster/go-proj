@@ -1,0 +1,32 @@
+#!/bin/bash -e
+
+. vars.inc
+
+go_get_and_install() {
+	while read pkg
+	do
+		[[ "$pkg" =~ ^#.*$ ]] && continue
+		if [ "$pkg" != '' ];
+		then
+			echo $pkg
+			go get -d $pkg
+			pkgdir=$(echo "/$pkg" | cut -d "/" -f2)
+			rm -rf $GOPATH/src/vendor/$pkg
+			cp -rf $GOPATH/src/$pkgdir $GOPATH/src/vendor/
+			rm -rf $GOPATH/src/$pkgdir
+		fi
+	done < ./update-deps.txt
+
+	# vendor's vcs repositories are not interesting for us - trying to kill them all
+	pushd $GOPATH/src/vendor > /dev/null 2>&1
+	for i in ".hg*" ".git*" ".bzr*"
+	do
+		find . -name $i -print0 | xargs -0 rm -rf
+	done
+	popd > /dev/null 2>&1
+
+	go install main
+	echo "OK"
+}
+
+confirm "Update external packages?" && go_get_and_install

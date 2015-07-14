@@ -3,10 +3,10 @@
 . go-build
 
 go_run() {
-	echo "-- running --->"
-	cd bin
+	cd $GOPATH/bin
 	./$PROJ_NAME
-	echo "OK"
 }
 
+echo "-- running --->"
 go_run
+echo "OK"

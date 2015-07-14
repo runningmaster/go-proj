@@ -1,7 +1,3 @@
 bin
-
-vnd/bin
-vnd/pkg
-vnd/src/src
-
+pkg
 vars.inc

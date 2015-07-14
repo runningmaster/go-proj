@@ -1,10 +1,9 @@
-export PROJ_NAME="p403"
-export PROJ_EDIT="sublime-text-3 src/main.go"
-
 export GOROOT=$HOME/go
-export GOPATH=$(pwd)/vnd
-
+export GOPATH=$(pwd)
+export GO15VENDOREXPERIMENT=1
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+export PROJ_NAME="main"
+export PROJ_EDIT="sublime-text-3 $GOPATH/src/main/main.go"
 
 confirm() {
     # call with a prompt string or use a default

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+. vars.inc
+
+echo "-- lint --->"
+golint main
+
+echo "-- vet --->"
+go vet main
+
+echo "-- errcheck --->"
+errcheck ./src/main/*.go
+
+echo "-- test main --->"
+go test -bench=. -cover ./src/main/*.go
+
+echo "-- test internal packages --->"
+go test -bench=. -cover ./src/main/internal/...
