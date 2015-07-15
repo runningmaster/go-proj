@@ -14,17 +14,15 @@ go_get_and_install() {
 			rm -rf $GOPATH/src/vendor/$pkg
 			cp -rf $GOPATH/src/$pkgdir $GOPATH/src/vendor/
 			rm -rf $GOPATH/src/$pkgdir
+			# vendor's vcs repositories are not interesting for us - trying to kill them all
+			pushd $GOPATH/src/vendor/$pkg > /dev/null 2>&1
+			for i in ".hg*" ".git*" ".bzr*"
+			do
+				find . -name "$i" -print0 | xargs -0 rm -rf
+			done
+			popd > /dev/null 2>&1
 		fi
-	done < ./update-deps.txt
-
-	# vendor's vcs repositories are not interesting for us - trying to kill them all
-	pushd $GOPATH/src/vendor > /dev/null 2>&1
-	for i in ".hg*" ".git*" ".bzr*"
-	do
-		find . -name $i -print0 | xargs -0 rm -rf
-	done
-	popd > /dev/null 2>&1
-
+	done < ./vend.txt
 	go install main
 	echo "OK"
 }
