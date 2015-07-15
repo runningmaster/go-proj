@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-. vars.inc
+. ../projvars.inc
 
 run_editor() {
 	$PROJ_EDIT

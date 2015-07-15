@@ -16,3 +16,9 @@ func BenchmarkRangeN(b *testing.B) {
 		_ = rangeN(1000)
 	}
 }
+
+func BenchmarkRangeN2(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		_ = rangeN2(1000)
+	}
+}

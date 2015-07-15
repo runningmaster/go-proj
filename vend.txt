@@ -1,9 +1,0 @@
-#
-# External packages which this project depends on. #
-#
-
-# Leveled execution logs for Go
-github.com/golang/glog
-
-# Package iter provides a syntantically different way to iterate over integers.
-github.com/bradfitz/iter

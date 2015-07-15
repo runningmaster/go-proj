@@ -20,7 +20,7 @@ func main() {
 
 	fmt.Println(version.Print())
 	fmt.Println(len(N))
-	fmt.Println(rangeN1(5), rangeN2(5))
+	fmt.Println(rangeN(5), rangeN2(5))
 
 	// Example logging
 	if glog.V(0) {
@@ -31,7 +31,7 @@ func main() {
 	}
 }
 
-func rangeN1(n int) int {
+func rangeN(n int) int {
 	var i int
 	for i = range N[:n] {
 	}

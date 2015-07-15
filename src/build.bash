@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-. vars.inc
+. ../projvars.inc
 
 BLDTIME=`date -u +%d-%m-%Y.%H:%M:%S`
 GITHEAD=`git rev-parse --short HEAD`
@@ -13,9 +13,9 @@ go_build() {
 			-X main/internal/version.BLDTIME=$BLDTIME \
 			-X main/internal/version.GITHEAD=$GITHEAD \
 			-X main/internal/version.VERSION=$VERSION" \
-		-o bin/$PROJ_NAME main
+		-o $GOPATH/bin/$PROJ_NAME main
 }
 
-echo "-- building --->"
+printf "\n-- build --->\n"
 go_build
-echo "OK"
+printf "OK\n"

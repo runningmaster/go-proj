@@ -1,12 +1,12 @@
 #!/bin/bash -e
 
-. go-build
+. build.bash
 
 go_run() {
 	cd $GOPATH/bin
 	./$PROJ_NAME
 }
 
-echo "-- running --->"
+printf "\n-- running --->\n"
 go_run
-echo "OK"
+printf "OK\n"
