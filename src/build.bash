@@ -18,4 +18,7 @@ go_build() {
 
 printf "\n-- build --->\n"
 go_build
+if [ -d $GOPATH/bin ] && [ ! -d bin ]; then
+  ln -s $GOPATH/bin bin
+fi
 printf "OK\n"
