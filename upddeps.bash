@@ -3,22 +3,23 @@
 . projvars.inc
 
 go_get_and_install() {
+	find $GOPATH/src -mindepth 1 -maxdepth 1 -type d ! -name 'main' | xargs rm -rf
+
 	while read pkg
 	do
 		[[ "$pkg" =~ ^#.*$ ]] && continue
 		if [ "$pkg" != '' ];
 		then
 			echo "$pkg"
-			rm -rf $GOPATH/src/$pkg			
 			go get -d $pkg
-			pushd $GOPATH/src/$pkg > /dev/null 2>&1
-			for i in ".hg*" ".git*" ".bzr*" ".svn"
-			do
-				find . -name "$i" -print0 | xargs -0 rm -rf
-			done
-			popd > /dev/null 2>&1
 		fi
 	done < ./DEPENDENCIES
+
+        for i in ".hg*" ".git*" ".bzr*" ".svn"
+        do
+		find $GOPATH/src -name "$i" -print0 | xargs -0 rm -rf
+        done
+
 	go install main
 	echo "OK (get/install)"
 }
