@@ -2,20 +2,25 @@
 
 . ../projvars.inc
 
-printf "\n-- test main --->\n"
-go test -bench=. -cover ./main/*.go
+MAIN=./main/*.go
+INTERNAL=./main/internal/...
 
-printf "\n-- test internal packages --->\n"
-go test -bench=. -cover ./main/internal/...
+echo ""
+echo ": go test main"
+go test -bench=. -cover $MAIN
 
-printf "\n-- vet --->\n"
-go vet ./main/*.go
-go vet ./main/internal/...
+echo ""
+echo ": go test internal"
+go test -bench=. -cover $INTERNAL
 
-printf "\n-- lnt --->\n"
-golint ./main/*.go
-golint ./main/internal/...
+echo ""
+echo ": go vet"
+go vet $MAIN && go vet $INTERNAL
 
-printf "\n-- err --->\n"
-errcheck ./main/*.go
-errcheck ./main/internal/...
+echo ""
+echo ": go lint"
+golint $MAIN && golint $INTERNAL
+
+echo ""
+echo ": errcheck"
+errcheck $MAIN && errcheck $INTERNAL

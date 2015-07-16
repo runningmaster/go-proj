@@ -5,8 +5,8 @@
 go_run() {
 	cd $GOPATH/bin
 	./$PROJ_NAME
+	echo "OK (run)"
 }
 
-printf "\n-- running --->\n"
+echo ""
 go_run
-printf "OK\n"

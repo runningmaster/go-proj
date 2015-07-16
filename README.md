@@ -1,11 +1,12 @@
-# Setup in Linux
+# My template for my new go projects
 
-## Сonvention
-*Each project is a separate $GOPATH*
+## Сonventions:
 
-## Getting Started
-1. Copy `cp projvars.txt projvars.inc` and override some env vars if necessary (usually it is $GOROOT)
+* Each project is a separate $GOPATH
+
+## Getting Started:
+
+1. Copy `cp projvars.txt projvars.inc` and override some env vars if necessary, usually it is $GOROOT
 2. Run `cd src` and execute `./build.bash` or `./buildrun.bash`
 
-If necessary run `./upddeps.bash` for update external dependencies (see *DEPENDENCIES*)
-
+*If you need for updating external dependencies (see *DEPENDENCIES*) - run `./upddeps.bash`*

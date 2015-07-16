@@ -14,11 +14,11 @@ go_build() {
 			-X main/internal/version.GITHEAD=$GITHEAD \
 			-X main/internal/version.VERSION=$VERSION" \
 		-o $GOPATH/bin/$PROJ_NAME main
+	echo "OK (build)"
 }
 
-printf "\n-- build --->\n"
+echo ""
 go_build
 if [ -d $GOPATH/bin ] && [ ! -d bin ]; then
   ln -s $GOPATH/bin bin
 fi
-printf "OK\n"

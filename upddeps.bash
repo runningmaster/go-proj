@@ -8,7 +8,7 @@ go_get_and_install() {
 		[[ "$pkg" =~ ^#.*$ ]] && continue
 		if [ "$pkg" != '' ];
 		then
-			printf "$pkg\n"
+			echo "$pkg"
 			rm -rf $GOPATH/src/$pkg			
 			go get -d $pkg
 			pushd $GOPATH/src/$pkg > /dev/null 2>&1
@@ -20,7 +20,8 @@ go_get_and_install() {
 		fi
 	done < ./DEPENDENCIES
 	go install main
-	printf "OK\n"
+	echo "OK (get/install)"
 }
 
+echo ""
 confirm "Update external packages?" && go_get_and_install

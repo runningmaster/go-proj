@@ -23,4 +23,9 @@ confirm() {
     esac
 }
 
-go env && go version
+echo ""
+go env
+
+echo "" 
+go version
+
