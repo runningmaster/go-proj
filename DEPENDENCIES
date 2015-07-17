@@ -1,14 +1,7 @@
                
-#
 # External packages which this project depends on.
 # Vendor VCS repositories are not interesting for us - we kill them all.
 # See upddeps.bash for details.
-#
-# Some packages like below *must* be installed in global $GOPATH separately
-# golang.org/x/tools/cmd/vet
-# github.com/golang/lint/golint
-# github.com/kisielk/errcheck
-#
 
 # Leveled execution logs for Go
 github.com/golang/glog
@@ -16,3 +9,8 @@ github.com/golang/glog
 # Package iter provides a syntantically different way to iterate over integers.
 github.com/bradfitz/iter
 
+
+# Some packages like below *must* be installed separately in global $GOPATH
+# golang.org/x/tools/cmd/vet
+# github.com/golang/lint/golint
+# github.com/kisielk/errcheck
