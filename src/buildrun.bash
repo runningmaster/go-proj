@@ -4,7 +4,7 @@
 
 go_run() {
 	cd $GOPATH/bin
-	./$PROJ_NAME
+	./$PROJNAME
 	echo "OK (run)"
 }
 

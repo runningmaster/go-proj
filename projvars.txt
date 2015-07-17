@@ -7,8 +7,8 @@ if [ ! -d "src" ]; then
 fi
 export GOPATH
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
-export PROJ_NAME="main"
-export PROJ_EDIT="sublime-text-3 $GOPATH/src/main/main.go"
+export PROJNAME="main"
+export PROJEDIT="sublime-text-3 $GOPATH/src/main/main.go"
 
 confirm() {
     # call with a prompt string or use a default

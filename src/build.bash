@@ -13,7 +13,7 @@ go_build() {
 		-X main/internal/version.GITHEAD=$GITHEAD \
 		-X main/internal/version.VERSION=$VERSION \
 		"\
-		-o $GOPATH/bin/$PROJ_NAME main
+		-o $GOPATH/bin/$PROJNAME main
 	echo "OK (build)"
 }
 
