@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. ../projvars.inc
+. ../vars.inc
 
 MAIN=./main/*.go
 INTERNAL=./main/internal/...

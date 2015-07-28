@@ -1,0 +1,31 @@
+# v.1
+
+export GOROOT=$DEV/go
+GOPATH=$(pwd)
+if [ ! -d "src" ]; then
+  GOPATH=$(dirname `pwd`)
+fi
+export GOPATH
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+export PROJNAME="main"
+export PROJEDIT="sublime-text-3 $GOPATH/src/main/main.go"
+
+confirm() {
+    # call with a prompt string or use a default
+    read -r -p "${1:-Are you sure?} [y/N] " response
+    case $response in
+        [yY][eE][sS]|[yY]) 
+            true
+            ;;
+        *)
+            false
+            ;;
+    esac
+}
+
+echo ""
+go env
+
+echo "" 
+go version
+

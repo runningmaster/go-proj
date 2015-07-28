@@ -7,7 +7,7 @@
 
 ## Getting Started:
 
-1. `cp projvars.txt projvars.inc` and override some env vars (usually `$GOROOT`) in inc file
-2. `cd src` and execute `./build.bash` or `./buildrun.bash`
+1. `cp vars.txt vars.inc` and override some env vars (usually `$GOROOT`) in inc file
+2. `cd src` and execute `./make.bash`
 
-*If there is need for updating external dependencies - run `./upddeps.bash`*
+*If there is need for updating external dependencies - run `./sync.bash`*

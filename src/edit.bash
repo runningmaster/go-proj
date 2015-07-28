@@ -1,5 +1,5 @@
 #!/bin/bash -e
 
-. ../projvars.inc
+. ../vars.inc
 
 $PROJEDIT &

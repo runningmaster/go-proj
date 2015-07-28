@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-. build.bash
+. make.bash
 
 go_run() {
 	cd $GOPATH/bin

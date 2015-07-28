@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-. projvars.inc
+. vars.inc
 
 go_get_and_install() {
 	find $GOPATH/src -mindepth 1 -maxdepth 1 -type d ! -name 'main' | xargs rm -rf

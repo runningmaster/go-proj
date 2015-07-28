@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-. ../projvars.inc
+. ../vars.inc
 
 BLDTIME=`date -u +%d-%m-%Y.%H:%M:%S`
 GITHEAD=`git rev-parse --short HEAD`
