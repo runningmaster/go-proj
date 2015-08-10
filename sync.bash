@@ -12,6 +12,7 @@ go_get_and_install() {
 		then
 			echo "$pkg"
 			go get -d $pkg
+			go install $pkg
 		fi
 	done < ./DEPENDENCIES
 
@@ -20,7 +21,6 @@ go_get_and_install() {
 		find $GOPATH/src -name "$i" -print0 | xargs -0 rm -rf
         done
 
-	go install main
 	echo "OK (get/install)"
 }
 
