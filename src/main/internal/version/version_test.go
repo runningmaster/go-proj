@@ -1,19 +1,21 @@
-package version
+package version_test
 
 import (
 	"testing"
+
+	"main/internal/version"
 )
 
 func TestPrint(t *testing.T) {
-	BLDTIME, GITHEAD, VERSION = "x", "y", "z"
-	got, want := Print(), "x y z"
+	version.BLDTIME, version.GITHEAD, version.VERSION = "x", "y", "z"
+	got, want := version.Print(), "x y z"
 	if got != want {
-		t.Errorf("print(): expected %s, actual %s", want, got)
+		t.Errorf("got %s, want %s", got, want)
 	}
 }
 
 func BenchmarkPrint(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		_ = Print()
+		_ = version.Print()
 	}
 }

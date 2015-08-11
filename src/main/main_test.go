@@ -7,7 +7,7 @@ import (
 func TestRangeN(t *testing.T) {
 	got, want := rangeN(5), 5
 	if got != want {
-		t.Errorf("print(): expected %d, actual %d", want, got)
+		t.Errorf("got %d, want %d", got, want)
 	}
 }
 
