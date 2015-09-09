@@ -9,8 +9,9 @@ github.com/golang/glog
 # Package iter provides a syntantically different way to iterate over integers.
 github.com/bradfitz/iter
 
-
-# Some packages like below *must* be installed separately in global $GOPATH
-# golang.org/x/tools/cmd/vet
-# github.com/golang/lint/golint
-# github.com/kisielk/errcheck
+#
+# Also, we use `gometalinter` for verifying ours source code.
+# See src/test.bash for details.
+# It *must* be installed separately in global $GOPATH.
+# $ go get -u github.com/alecthomas/gometalinter
+# $ gometalinter --install --update

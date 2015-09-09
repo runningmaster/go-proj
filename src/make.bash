@@ -8,7 +8,6 @@ VERSION=1.0 #`git describe --tags --abbrev=0 | sed 's/^v//' | sed 's/\+.*$$//'`
 
 go_build() {
 	go fmt main
-	go install main
 	go build -ldflags "\
 		-X main/internal/version.BLDTIME=$BLDTIME \
 		-X main/internal/version.GITHEAD=$GITHEAD \
