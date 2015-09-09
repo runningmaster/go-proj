@@ -11,7 +11,6 @@ github.com/bradfitz/iter
 
 #
 # Also, we use `gometalinter` for verifying ours source code.
-# See src/test.bash for details.
 # It *must* be installed separately in global $GOPATH.
 # $ go get -u github.com/alecthomas/gometalinter
 # $ gometalinter --install --update
