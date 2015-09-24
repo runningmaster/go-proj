@@ -15,6 +15,3 @@ gometalinter ./main/...
 
 echo ": gometalinter internal"
 gometalinter ./internal/...
-
-# workaround
-rm -rf $GOPATH/pkg
