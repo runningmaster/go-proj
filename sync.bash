@@ -3,6 +3,8 @@
 . vars.inc
 
 go_get_and_install() {
+	rm -rf $GOPATH/pkg
+	rm -rf $GOPATH/src/vendor
 	while read pkg
 	do
 		[[ "$pkg" =~ ^#.*$ ]] && continue
@@ -11,7 +13,6 @@ go_get_and_install() {
 			echo "$pkg"
 			go get -d $pkg
 			pkgdir=$(echo "/$pkg" | cut -d "/" -f2)
-			rm -rf $GOPATH/src/vendor/$pkg
 			mkdir -p $GOPATH/src/vendor/$pkgdir 
 			cp -rf $GOPATH/src/$pkgdir $GOPATH/src/vendor/
 			rm -rf $GOPATH/src/$pkgdir
@@ -23,9 +24,8 @@ go_get_and_install() {
 		find $GOPATH/src/vendor -name "$i" -print0 | xargs -0 rm -rf
         done
 
-	# workaround for linting with GO15VENDOREXPERIMENT=1
-        rm -rf $GOPATH/pkg
         go install main
+	# workaround for linting with GO15VENDOREXPERIMENT=1
         for f in $GOPATH/pkg/linux_amd64/vendor/*; do
                 ln -s $f $GOPATH/pkg/linux_amd64/
         done
