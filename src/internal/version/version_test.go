@@ -3,7 +3,7 @@ package version_test
 import (
 	"testing"
 
-	"main/internal/version"
+	"internal/version"
 )
 
 func TestPrint(t *testing.T) {

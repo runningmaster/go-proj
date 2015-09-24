@@ -9,6 +9,7 @@ export GOPATH
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 export PROJNAME="main"
 export PROJEDIT="sublime-text-3 $GOPATH/src/main/main.go"
+export GO15VENDOREXPERIMENT="1"
 
 confirm() {
     # call with a prompt string or use a default

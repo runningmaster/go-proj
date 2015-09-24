@@ -4,7 +4,7 @@ import (
 	"flag"
 	"fmt"
 
-	"main/internal/version"
+	"internal/version"
 
 	"github.com/bradfitz/iter"
 	"github.com/golang/glog"

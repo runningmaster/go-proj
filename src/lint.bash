@@ -3,5 +3,9 @@
 . ../vars.inc
 
 echo ""
-echo ": gometalinter"
+echo ": gometalinter main"
 gometalinter ./main/...
+
+echo ": gometalinter main"
+gometalinter ./internal/...
+
