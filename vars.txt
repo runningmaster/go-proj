@@ -1,13 +1,13 @@
-export GOROOT=$HOME/go
 GOPATH=$(pwd)
 if [ ! -d "src" ]; then
   GOPATH=$(dirname `pwd`)
 fi
 export GOPATH
-export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
-export PROJNAME=main
-export PROJEDIT="sublime-text-3 $GOPATH/src/main/main.go"
+export GOROOT=$HOME/go
 export GO15VENDOREXPERIMENT=1
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+export PROJEDIT="sublime-text-3 $GOPATH/src/main/main.go"
+export PROJNAME=main
 
 confirm() {
     # call with a prompt string or use a default
