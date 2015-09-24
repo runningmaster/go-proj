@@ -15,7 +15,6 @@ go_get_and_install() {
 			mkdir -p $GOPATH/src/vendor/$pkgdir 
 			cp -rf $GOPATH/src/$pkgdir $GOPATH/src/vendor/
 			rm -rf $GOPATH/src/$pkgdir
-			#go install $pkg
 		fi
 	done < ./DEPENDENCIES
 
@@ -24,7 +23,6 @@ go_get_and_install() {
 		find $GOPATH/src/vendor -name "$i" -print0 | xargs -0 rm -rf
         done
 
-	#go install main
 	echo "OK (get/install)"
 }
 
