@@ -24,8 +24,8 @@ go_get_and_install() {
 		find $GOPATH/src/vendor -name "$i" -print0 | xargs -0 rm -rf
         done
 
-	go install main && rm -rf $GOPATH/bin/main
-	# workaround for linting with GO15VENDOREXPERIMENT=1
+		go install main && rm -rf $GOPATH/bin/main
+		# workaround for linting with GO15VENDOREXPERIMENT=1
         for f in $GOPATH/pkg/linux_amd64/vendor/*; do
                 ln -s $f $GOPATH/pkg/linux_amd64/
         done
