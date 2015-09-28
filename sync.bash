@@ -19,16 +19,10 @@ go_get_and_install() {
 		fi
 	done < ./DEPENDENCIES
 
-        for i in ".hg*" ".git*" ".bzr*" ".svn"
-        do
+	for i in ".hg*" ".git*" ".bzr*" ".svn"
+	do
 		find $GOPATH/src/vendor -name "$i" -print0 | xargs -0 rm -rf
-        done
-
-		go install main && rm -rf $GOPATH/bin/main
-		# workaround for linting with GO15VENDOREXPERIMENT=1
-        for f in $GOPATH/pkg/linux_amd64/vendor/*; do
-                ln -s $f $GOPATH/pkg/linux_amd64/
-        done
+	done
 
 	echo "OK (get/install)"
 }
