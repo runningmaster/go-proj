@@ -2,7 +2,7 @@
 
 package main
 
-// This program generates version_data.go. Invoke it as
+// This program generates version_gen.go. Invoke it as
 //	go run gen.go
 
 import (
@@ -47,7 +47,7 @@ const (
 )
 
 func main() {
-	flagFilename := flag.String("o", "version_data.go", "output file name")
+	flagFilename := flag.String("o", "version_gen.go", "output file name")
 	flag.Parse()
 	//fmt.Printf("go:generate in %s -> %s\n", os.Getenv("GOFILE"), *flagFilename)
 
