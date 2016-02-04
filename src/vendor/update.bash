@@ -24,7 +24,12 @@ fi
 
 # save git rev
 find $GOPATH -type d -name ".git" -print0 | while IFS= read -r -d $'\0' line; do
-	cd $(dirname "$line") && git rev-parse HEAD > .gitcommit
+	cd $(dirname "$line") && data=$(git --no-pager log -n 1 --format=format:"%H,%cd,%an <%ce>" HEAD)
+	IFS=","
+	for x in $data
+	do
+		echo $x >> .gitcommit
+	done
 done
 
 # kill .git dir
