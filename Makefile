@@ -17,3 +17,7 @@ test:
 
 vend:
 	cd src/vendor && ./update.bash
+
+clean:
+	find . -type d -name "bin" -or -name "pkg" | xargs rm -rf
+	find . -type f -name "*.local" | xargs rm -rf
