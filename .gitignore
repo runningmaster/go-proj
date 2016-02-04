@@ -1,4 +1,4 @@
-bin
+bin/
 etc/env.conf.local
-pkg
+pkg/
 src/internal/version/version_gen.go
