@@ -1,4 +1,4 @@
 bin/
 etc/env.conf.local
 pkg/
-src/internal/version/version_gen.go
+src/internal/version/tip.go
