@@ -5,4 +5,4 @@ if [ -f $CONFLOC ]; then
   confirm "Rewrite $(basename $CONFLOC) ?" || exit 0
 fi
 
-head -n 6 env.conf | tail -n 3 > $CONFLOC
+head -n 7 env.conf | tail -n 4 > $CONFLOC
