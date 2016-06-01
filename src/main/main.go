@@ -10,6 +10,6 @@ import (
 
 func main() {
 	for i := range iter.N(10) {
-		fmt.Println(version.Stamp.AppName(), i)
+		fmt.Println(version.String(), i)
 	}
 }
