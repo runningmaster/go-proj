@@ -1,0 +1,9 @@
+# golang.org/x/text v0.3.2
+golang.org/x/text/internal/language
+golang.org/x/text/internal/language/compact
+golang.org/x/text/internal/tag
+golang.org/x/text/language
+# rsc.io/quote v1.5.2
+rsc.io/quote
+# rsc.io/sampler v1.99.99
+rsc.io/sampler
