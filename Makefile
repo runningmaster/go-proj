@@ -1,25 +1,30 @@
 # Top level makefile
 
-MOD=github.com/runningmaster/go-proj
-CMD=${MOD}/cmd/example
-BIN=$(shell pwd)/bin
-#VER=$(shell git describe --tags --abbrev=0)-alpha+$(shell date -u +%Y%m%d%H%M%S).$(shell git rev-parse --short HEAD)
+MODULE=github.com/runningmaster/go-proj
+COMMAND=${MODULE}/cmd/example
+OUTBIN=$(shell sh -c 'pwd')/bin
+
+GITTAG=$(shell sh -c 'git describe --tags --abbrev=0 || echo v0.0.1')
+GITSHA=$(shell sh -c 'git rev-parse --short HEAD || echo 000000')
+PRERELEASE=alpha
+BUILD=$(shell date -u +%Y%m%d%H%M%S).${GITSHA}
+SEMVER=${GITTAG}-${PRERELEASE}+${BUILD}
 
 
 .PHONY: build
 ## build: Build the application
 build: clean
-	@echo "Building..."
+	@echo "Building... ${SEMVER}"
 	@go mod vendor \
-		&& export GOBIN=${BIN} \
-		&& export GOFLAGS="-mod=vendor -ldflags=-s -ldflags=-w -ldflags=-X=main.semver=${VER}" \
-		&& go install ${CMD}
+		&& export GOBIN=${OUTBIN} \
+		&& export GOFLAGS="-mod=vendor -ldflags=-s -ldflags=-w -ldflags=-X=main.semver=${SEMVER}" \
+		&& go install ${COMMAND}
 
 
 .PHONY: run
 ## run: Runs go run
 run:
-	@go run -race ${CMD}
+	@go run -race ${COMMAND}
 
 
 .PHONY: lint
@@ -47,8 +52,8 @@ bench:
 .PHONY: init
 ## init: Init go module
 init:
-	@echo "Init Go module ${MOD}"
-	@go mod init ${MOD} \
+	@echo "Init Go module"
+	@go mod init ${MODULE} \
 		&& go mod tidy \
 		&& go mod vendor
 
